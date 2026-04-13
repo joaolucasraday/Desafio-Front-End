@@ -1,6 +1,6 @@
+// Schema de validação do formulário de login utilizando Zod
 import { z } from "zod";
 
-// Definindo o esquema de validação
 export const loginSchema = z.object({
   email: z
     .string()
@@ -11,5 +11,5 @@ export const loginSchema = z.object({
     .min(6, "A senha deve ter no mínimo 6 caracteres"),
 });
 
-// Isso exporta o tipo baseado no schema acima (útil para o seu formulário)
+// Tipo derivado automaticamente a partir do schema
 export type LoginFormData = z.infer<typeof loginSchema>;

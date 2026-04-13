@@ -1,3 +1,4 @@
+// Página de dashboard com controle de sessão e ação de logout
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import LogoutButton from "../components/atoms/LogoutButton";
@@ -7,6 +8,7 @@ export default function Dashboard() {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
+  // Encerra a sessão e redireciona para a tela de login
   function handleLogout() {
     logout();
     navigate("/login");

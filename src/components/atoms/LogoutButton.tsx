@@ -1,3 +1,4 @@
+// Botão para ação de Logout
 type LogoutButtonProps = {
   onClick: () => void;
 };

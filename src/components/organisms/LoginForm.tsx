@@ -1,8 +1,9 @@
+// Componente responsável pelo formulário de login com validação e autenticação
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginInput from "../atoms/LoginInput";
 import EnterButton from "../atoms/EnterButton";
-import { loginSchema } from "../../validations/loginValidation"; // Importamos o schema
+import { loginSchema } from "../../validations/loginValidation";
 import { useAuth } from "../../hooks/useAuth";
 
 type Errors = {
@@ -20,21 +21,18 @@ export default function LoginForm() {
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    // 1. Validamos usando o Zod
+    // Validação dos dados com Zod antes do envio
     const result = loginSchema.safeParse({ email, password });
 
     if (!result.success) {
-      // 2. Se houver erro, "achatamos" o erro do Zod para o seu tipo Errors
       const fieldErrors = result.error.flatten().fieldErrors;
-      
       setErrors({
-        email: fieldErrors.email?.[0],    // Pega a primeira mensagem de erro de email
-        password: fieldErrors.password?.[0] // Pega a primeira mensagem de erro de senha
+        email: fieldErrors.email?.[0], 
+        password: fieldErrors.password?.[0] 
       });
-      return; // Interrompe a execução
+      return;
     }
 
-    // 3. Se chegou aqui, os dados estão válidos
     setErrors({});
     const success = handleLogin(email, password);
 

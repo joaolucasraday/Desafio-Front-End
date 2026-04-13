@@ -1,3 +1,4 @@
+// Botão de envio para formulários
 import type { ReactNode } from "react";
 
 type EnterButtonProps = {

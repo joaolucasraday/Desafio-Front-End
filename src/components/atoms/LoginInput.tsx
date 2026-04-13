@@ -1,3 +1,4 @@
+// Componente de input reutilizável com suporte a exibição de erros
 import type { ChangeEvent } from "react";
 
 type LoginInputProps = {

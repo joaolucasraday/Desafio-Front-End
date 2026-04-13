@@ -1,3 +1,4 @@
+// Componente responsável por alternar e persistir o tema da aplicação (light/dark)
 import { useEffect, useState } from "react";
 
 export function ToggleDarkMode() {
