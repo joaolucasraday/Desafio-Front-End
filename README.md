@@ -48,20 +48,29 @@ http://localhost:5173
 O projeto segue o padrão Atomic Design:
 
 components/
-  atoms/
-  molecules/
-  organisms/
+
+  - atoms/
+  
+  - molecules/
+  
+  - organisms/
 
 hooks/
+
 layouts/
+
 pages/
+
 routes/
+
 services/
+
 validations/
 
 ## Credenciais para acesso
 
 E-mail: admin@email.com
+
 Senha: 123456
 
 ## Observações
