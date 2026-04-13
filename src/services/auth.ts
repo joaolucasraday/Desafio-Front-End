@@ -1,3 +1,4 @@
+// Serviço de autenticação simulada para validação de credenciais
 type User = {
   email: string;
   password: string;

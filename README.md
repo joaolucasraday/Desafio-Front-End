@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# Desafio Front-End em React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte de um processo seletivo para estágio em Desenvolvimento Front-End. Trata-se de uma aplicação que implementa um fluxo de autenticação, contendo um formulário de login com validação de dados e uma área restrita (dashboard) acessível apenas após a autenticação do usuário.
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React: construção da interface com componentes.
+- TypeScript: tipagem estática para maior segurança.
+- Tailwind CSS: estilização rápida com classes utilitárias.
+- Atomic Design: organização dos componentes da interface.
+- React Router DOM: controle de rotas da aplicação.
+- Zod: validação de dados dos formulários.
+- LocalStorage: persistência de dados no navegador.
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Login com validação de dados
+- Exibição de erros no formulário
+- Persistência de autenticação
+- Logout com redirecionamento
+- Alternância entre tema claro e escuro
 
-## Expanding the ESLint configuration
+## Instalação das dependências
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clone o repositório:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+git clone https://github.com/joaolucasraday/Desafio-Front-End.git
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. Acesse a pasta do projeto:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+cd nome-do-projeto
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Instale as dependências:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Execução do projeto
+
+Para iniciar o servidor de desenvolvimento:
+
+npm run dev
+
+Acesse no navegador:
+http://localhost:5173
+
+## Estrutura do projeto
+
+O projeto segue o padrão Atomic Design:
+
+components/
+  atoms/
+  molecules/
+  organisms/
+
+hooks/
+layouts/
+pages/
+routes/
+services/
+validations/
+
+## Credenciais para acesso
+
+E-mail: admin@email.com
+Senha: 123456
+
+## Observações
+
+Desafio para vaga de Estágio em Desenvolvimento Front-End
+
+Candidato: João Lucas Sena Raday
+
+Localidade da Empresa: SIM, Feira de Santana - BA.
