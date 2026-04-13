@@ -46,26 +46,30 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg">
-      <h1 className="text-xl mb-4 font-bold">Login</h1>
-
-      <LoginInput
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        error={errors.email}
-      />
-
-      <LoginInput
-        type="password"
-        placeholder="Senha"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        error={errors.password}
-      />
-
-      <EnterButton>Entrar</EnterButton>
-    </form>
+    <form
+      onSubmit={onSubmit}
+      className="w-full max-w-md p-6 rounded-xl shadow-lg 
+      bg-white text-black 
+      dark:bg-gray-800 dark:text-white 
+      flex flex-col gap-4 
+      transition-colors duration-300"
+    >
+    <h1 className="text-xl font-bold text-center">Login</h1>
+    <LoginInput
+      type="email"
+      placeholder="Email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      error={errors.email}
+    />
+    <LoginInput
+      type="password"
+      placeholder="Senha"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      error={errors.password}
+    />
+    <EnterButton>Entrar</EnterButton>
+  </form>
   );
 }

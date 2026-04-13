@@ -22,8 +22,12 @@ export default function LoginInput({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`border p-2 w-full rounded-lg transition-colors ${
-          error ? "border-red-500 focus:outline-red-500" : "border-gray-300 focus:outline-blue-500"
+        className={`border p-2 w-full rounded-lg transition-colors 
+        bg-white text-black dark:bg-gray-700 dark:text-white
+        ${
+          error
+            ? "border-red-500 focus:outline-red-500"
+            : "border-gray-300 dark:border-gray-600 focus:outline-blue-500 dark:focus:outline-blue-400"
         }`}
       />
       {/* Renderização condicional do erro */}
