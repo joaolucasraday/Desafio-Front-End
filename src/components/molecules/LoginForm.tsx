@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginInput from "../atoms/LoginInput";
 import EnterButton from "../atoms/EnterButton";
-import { validateLogin } from "../../validations/loginValidation";
+import { loginSchema } from "../../validations/loginValidation"; // Importamos o schema
 import { useAuth } from "../../hooks/useAuth";
 
 type Errors = {
@@ -20,23 +20,34 @@ export default function LoginForm() {
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const validationErrors = validateLogin(email, password);
-    setErrors(validationErrors);
+    // 1. Validamos usando o Zod
+    const result = loginSchema.safeParse({ email, password });
 
-    if (Object.keys(validationErrors).length === 0) {
-      const success = handleLogin(email, password);
+    if (!result.success) {
+      // 2. Se houver erro, "achatamos" o erro do Zod para o seu tipo Errors
+      const fieldErrors = result.error.flatten().fieldErrors;
+      
+      setErrors({
+        email: fieldErrors.email?.[0],    // Pega a primeira mensagem de erro de email
+        password: fieldErrors.password?.[0] // Pega a primeira mensagem de erro de senha
+      });
+      return; // Interrompe a execução
+    }
 
-      if (success) {
-        navigate("/dashboard");
-      } else {
-        setErrors({ password: "Credenciais inválidas" });
-      }
+    // 3. Se chegou aqui, os dados estão válidos
+    setErrors({});
+    const success = handleLogin(email, password);
+
+    if (success) {
+      navigate("/dashboard");
+    } else {
+      setErrors({ password: "Credenciais inválidas" });
     }
   }
 
   return (
     <form onSubmit={onSubmit} className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg">
-      <h1 className="text-xl mb-4">Login</h1>
+      <h1 className="text-xl mb-4 font-bold">Login</h1>
 
       <LoginInput
         type="email"

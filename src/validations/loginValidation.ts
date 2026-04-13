@@ -1,13 +1,15 @@
-export function validateLogin(email: string, password: string) {
-  const errors: { email?: string; password?: string } = {};
+import { z } from "zod";
 
-  if (!email.includes("@")) {
-    errors.email = "Email inválido";
-  }
+// Definindo o esquema de validação
+export const loginSchema = z.object({
+  email: z
+    .string()
+    .min(1, "O e-mail é obrigatório")
+    .email("Formato de e-mail inválido"),
+  password: z
+    .string()
+    .min(6, "A senha deve ter no mínimo 6 caracteres"),
+});
 
-  if (password.length < 6) {
-    errors.password = "Senha deve ter no mínimo 6 caracteres";
-  }
-
-  return errors;
-}
+// Isso exporta o tipo baseado no schema acima (útil para o seu formulário)
+export type LoginFormData = z.infer<typeof loginSchema>;
