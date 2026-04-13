@@ -1,7 +1,7 @@
 // Página de dashboard com controle de sessão e ação de logout
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import LogoutButton from "../components/atoms/LogoutButton";
+import Button from "../components/atoms/Button";
 import Layout from "../layouts/Layout";
 
 export default function Dashboard() {
@@ -18,7 +18,7 @@ export default function Dashboard() {
     <Layout>
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-black dark:text-white">Bem vindo ao Dashboard</h1>
-        <LogoutButton onClick={handleLogout} />
+        <Button variant="danger" onClick={handleLogout}>Sair do Sistema</Button>
       </div>
     </Layout>
   );

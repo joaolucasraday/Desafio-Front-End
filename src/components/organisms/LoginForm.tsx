@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginInput from "../atoms/LoginInput";
-import EnterButton from "../atoms/EnterButton";
+import Button from "../atoms/Button";
 import { loginSchema } from "../../validations/loginValidation";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -67,7 +67,7 @@ export default function LoginForm() {
       onChange={(e) => setPassword(e.target.value)}
       error={errors.password}
     />
-    <EnterButton>Entrar</EnterButton>
+    <Button type="submit">Entrar</Button>
   </form>
   );
 }
